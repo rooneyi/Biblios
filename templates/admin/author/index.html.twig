@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste d'autheur{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 5em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<section class="example-wrapper">
+    <h1>Liste d'autheur ✅</h1>
+    <ul class="list-group-flush">
+        {% for author in authors %}
+            <div class="card mb-1">
+                <div class="card-body ">
+                    <div class="card-title d-flex justify-content-between">
+                        <h4 class="mb-1">{{ author.name }}</h4>
+                        <small class="text-muted">Id : {{ author.id }}</small>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <li>Aucun enregistrement en base de donnees</li>
+        {% endfor %}
+    </ul>
+    {{ pagerfanta(authors) }}
+</section>
+{% endblock %}

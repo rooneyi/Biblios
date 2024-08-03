@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% set action ==app.current_route =='app_admin_author_new' ? 'Ajout':'Edit' %}
+
+{% block title %}{{ action }} d'auteur{% endblock %}
+
+{% block body %}
+    <div class="w-50 m-auto">
+        <style>
+            .example-wrapper { margin: 3em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+            .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+        </style>
+        
+        <div class="example-wrapper">
+            <h1>Ajout d'auteur</h1>
+            
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
